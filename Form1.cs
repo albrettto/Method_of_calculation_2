@@ -17,90 +17,6 @@ namespace Method_of_calculation_2
             InitializeComponent();
         }
 
-        //    const double start = 0, end = Math.PI;
-        //    const int N = 10241;
-        //    double[] x = new double[N];
-        //    double[] a = new double[N];
-        //    double[] b = new double[N];
-        //    double[] c = new double[N];
-        //    double[] m = new double[N];
-        //    double[] d = new double[N];
-        //    double[] l = new double[N];
-        //    double[] mu = new double[N];
-        //    double[] S = new double[N];
-        //    double h, X, deltamax, deltaoc, K, maxpred;
-        //    double func(double x)
-        //    {
-        //        return Math.Sin(x);
-        //    }
-        //    private void btn_Click(object sender, EventArgs e)
-        //    {
-        //        /*dataGridView.Columns.Add("1", "n");
-        //        dataGridView.Columns.Add("2", "deltamax");
-        //        dataGridView.Columns.Add("3", "deltaoc");
-        //        dataGridView.Columns.Add("4", "K");*/
-
-        //        for (int n = 5; n <= 10240; n *= 2)
-        //        {
-
-        //            x[0] = start;
-        //            x[n] = end;
-
-        //            h = (end - start) / n;
-        //            for (int i = 1; i < n; i++)
-        //            {
-        //                x[i] = start + i * h;
-        //            }
-
-        //            double f_2proizv_a = -Math.Sin(start);
-        //            double f_2proizv_b = -Math.Sin(end);
-
-        //            c[0] = 0;
-        //            a[0] = 1;
-        //            b[0] = 0;
-        //            d[0] = f_2proizv_a;
-        //            l[0] = -b[0] / a[0];
-        //            mu[0] = d[0] / a[0];
-        //            b[n] = 0;
-        //            a[n] = 1;
-        //            c[n] = 0;
-        //            d[n] = f_2proizv_b;
-        //            for (int i = 1; i <= n - 1; i++)
-        //            {
-        //                a[i] = 2 * h / 3;
-        //                b[i] = h / 6;
-        //                c[i] = h / 6;
-        //                d[i] = (func(x[i + 1]) - 2 * func(x[i]) + func(x[i - 1])) / h;
-        //                l[i] = -b[i] / (a[i] + c[i] * l[i - 1]);
-        //                mu[i] = (d[i] - c[i] * mu[i - 1]) / (a[i] + c[i] * l[i - 1]);
-        //            }
-        //            l[n] = -b[n] / (a[n] + c[n] * l[n - 1]);
-        //            mu[n] = (d[n] - c[n] * mu[n - 1]) / (a[n] + c[n] * l[n - 1]);
-        //            m[n] = mu[n];
-        //            for (int i = n - 1; i >= 0; i--)
-        //            {
-        //                m[i] = l[i] * m[i + 1] + mu[i];
-        //            }
-        //            deltamax = Math.Abs(S[1] - func(x[0] + h / 2));
-
-        //            for (int i = 1; i <= n; i++)
-        //            {
-        //                X = x[i - 1] + h / 2;
-        //                if (Math.Abs(S[i] - func(X)) > deltamax)
-        //                    deltamax = Math.Abs(S[i] - func(X));
-        //            }
-        //            if (n > 5)
-        //            {
-        //                deltaoc = maxpred / 16;
-        //                K = maxpred / deltamax;
-        //                dataGridView.Rows.Add(n, deltamax, deltaoc, K);
-        //            }
-        //            else dataGridView.Rows.Add(n, deltamax, "-", "-");
-
-        //            maxpred = deltamax;
-        //        }
-
-        //    }
         const double pi = 3.14159265359;
 
         void V_d(double[] d, double h, int n)
@@ -161,9 +77,8 @@ namespace Method_of_calculation_2
             double prev_dmax = 0;
             for (int n = 5; n <= 10240; n *= 2)
             {
-                double h = pi / n;
+                double h = pi / n; //шаг, расстояние м/у точками
                 double ai = 2 * h / 3, bi = h / 6, ci = h / 6;
-                //double a0 = 1, b0 = 0, cn = 0, an = 1;
                 double[] m = new double[n + 1];
                 double[] lambda = new double[n + 1];
                 double[] nu = new double[n + 1];
@@ -176,6 +91,7 @@ namespace Method_of_calculation_2
                 if (n == 5)
                 {
                     prev_dmax = dmax;
+                    dataGridView.Rows.Add(n, dmax, "-", "-");
                 }
                 else
                 {
@@ -185,6 +101,16 @@ namespace Method_of_calculation_2
                     prev_dmax = dmax;
                 }
             }
+        }
+
+        Form2 info_Form;
+        private void button_Click(object sender, EventArgs e)
+        {
+                if (info_Form == null || info_Form.IsDisposed)
+                {
+                    info_Form = new Form2();
+                    info_Form.Show();
+                }
         }
     }
 }

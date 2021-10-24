@@ -31,11 +31,12 @@ namespace Method_of_calculation_2
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.btn = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn = new System.Windows.Forms.Button();
+            this.button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,21 +59,6 @@ namespace Method_of_calculation_2
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(928, 456);
             this.dataGridView.TabIndex = 0;
-            // 
-            // btn
-            // 
-            this.btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn.BackColor = System.Drawing.Color.SteelBlue;
-            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btn.Location = new System.Drawing.Point(344, 476);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(265, 32);
-            this.btn.TabIndex = 1;
-            this.btn.Text = "Результат";
-            this.btn.UseVisualStyleBackColor = false;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // Column1
             // 
@@ -106,12 +92,43 @@ namespace Method_of_calculation_2
             this.Column4.ReadOnly = true;
             this.Column4.Width = 250;
             // 
+            // btn
+            // 
+            this.btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btn.Location = new System.Drawing.Point(12, 476);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(265, 32);
+            this.btn.TabIndex = 1;
+            this.btn.Text = "Результат";
+            this.btn.UseVisualStyleBackColor = false;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
+            // 
+            // button
+            // 
+            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button.BackColor = System.Drawing.Color.SteelBlue;
+            this.button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button.ForeColor = System.Drawing.Color.AliceBlue;
+            this.button.Location = new System.Drawing.Point(676, 476);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(265, 32);
+            this.button.TabIndex = 2;
+            this.button.Text = "Формулы";
+            this.button.UseVisualStyleBackColor = false;
+            this.button.Click += new System.EventHandler(this.button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(953, 515);
+            this.Controls.Add(this.button);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.dataGridView);
             this.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -131,6 +148,7 @@ namespace Method_of_calculation_2
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button button;
     }
 }
 
